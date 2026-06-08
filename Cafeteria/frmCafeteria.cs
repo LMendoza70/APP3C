@@ -38,12 +38,14 @@ namespace APP3C.Cafeteria
         {
             string nombre = txtNombre.Text;
             float precio= float.Parse( txtPrecio.Text.Trim());
-            string tamaño=cmbtamaño.Text;
+            string tamaño=cmbTamano.Text;
             int extra= int.Parse( txtExtra.Text.Trim());
+
 
             if (rdbCaliente.Checked == true)
             {
                 bebidas.Add(new BebidaCaliente(nombre, tamaño, precio, extra));
+
             }
             else
             {
@@ -52,6 +54,18 @@ namespace APP3C.Cafeteria
 
             MessageBox.Show("Bebida agregada correctamente, tienes : "+bebidas.Count + " bebidas registradas");
             LimpiaCajas();
+
+            if (bebidas[bebidas.Count-1] is BebidaFria fria)
+            {
+                lsbLista.Items.Add(fria.Listar());
+            }
+            else if (bebidas[bebidas.Count-1] is BebidaCaliente caliente )
+            {
+                lsbLista.Items.Add(caliente.Listar());
+            }
+
+            lblCantidad.Text = bebidas.Count + " Bebidas registradas";
+
         }
 
         private void LimpiaCajas()
@@ -59,7 +73,21 @@ namespace APP3C.Cafeteria
             txtNombre.Clear();
             txtPrecio.Clear();
             txtExtra.Clear();
-            cmbtamaño.SelectedValue = 0;
+            cmbTamano.SelectedIndex = 0;
+        }
+
+        private void lsbLista_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            /*if (bebidas[lsbLista.SelectedIndex] is BebidaFria fria)
+            {
+                lblDescripcion.Text=fria.d
+            }
+            else if (bebidas[bebidas.Count - 1] is BebidaCaliente caliente)
+            {
+                lsbLista.Items.Add(caliente.Listar());
+            }*/
+
+            lblDescripcion.Text = bebidas[lsbLista.SelectedIndex].Preparar();
         }
     }
 }
