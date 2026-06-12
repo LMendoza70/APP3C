@@ -20,7 +20,7 @@ namespace APP3C
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmCafeteria());
+            Application.Run(new frmPrincipal());
         }
     }
 }
