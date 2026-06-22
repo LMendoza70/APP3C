@@ -63,5 +63,10 @@ namespace APP3C
         {
             Application.Exit();
         }
+
+        private void Abreinstancia(Form form)
+        {
+
+        }
     }
 }

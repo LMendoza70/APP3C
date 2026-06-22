@@ -1,5 +1,6 @@
 ﻿using APP3C.HolaMundo;
 using APP3C.Cafeteria;
+using APP3C.Login;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace APP3C
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmPrincipal());
+            Application.Run(new frmLogin());
         }
     }
 }
