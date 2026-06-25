@@ -25,12 +25,12 @@ namespace APP3C.Data
             {
                 MySqlConnection conexion = new MySqlConnection(Cadena);
                 conexion.Open();
-                MessageBox.Show("Conectado exitosamente...");
+                //MessageBox.Show("Conectado exitosamente...");
                 return conexion;
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Error al conectar a la base de datos "+ex.ToString());
+                //MessageBox.Show("Error al conectar a la base de datos "+ex.ToString());
                 return null;
             }
         }
